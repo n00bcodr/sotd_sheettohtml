@@ -1,0 +1,21 @@
+{
+  "name": "sheetstohtml",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/migrate.js",
+    "type": "module",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "node-fetch": "^3.2.10",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.7.1"
+  }
+}
