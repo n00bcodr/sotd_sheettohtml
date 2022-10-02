@@ -79,42 +79,25 @@ function getId(url) {
 const getLinkEmbedInfo = (link) => {
     let truncatedLink = ""
     if (link.indexOf("youtube.com") !== -1) {
-        truncatedLink = "https://www.youtube.com/embed/" + getId(link)
-    } else if (link.indexOf("spotify.com") !== -1) {
-        truncatedLink = "https://open.spotify.com/embed/" + link.substr(link.indexOf("com/") + 4)
-    } else if (link.indexOf("youtu.be") !== -1) {
-        truncatedLink = "https://www.youtube.com/embed/" + link.substr(link.indexOf(".be/") + 4)
+        truncatedLink =  "https://www.youtube.com/embed/" + getId(link)
+    } else if(link.indexOf("spotify.com") !== -1) {
+        truncatedLink = "https://open.spotify.com/embed/" + link.substr(link.indexOf("com/")+4)
+     }else if(link.indexOf("youtu.be") !== -1) {
+        truncatedLink = "https://www.youtube.com/embed/" + link.substr(link.indexOf(".be/")+4)
     }
-    var ifrm = document.createElement("iframe");
-    ifrm.setAttribute("src", truncatedLink);
-    ifrm.setAttribute("frameBorder", "0");
-    ifrm.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture");
-    ifrm.setAttribute("loading", "lazy");
-    return ifrm
+    return `<div> 
+<iframe  allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen;  gyroscope; picture-in-picture" loading="lazy" src=${truncatedLink}></iframe>
+</div>`
 }
 
 function processRows(json) {
     let embedFrames = []
-    const embedsContainer = document.createElement('div')
     json.forEach((row) => {
         console.log(row)
         const embedData = getLinkEmbedInfo(row.Link)
-        embedsContainer.appendChild(embedData)
         embedFrames.push(embedData)
     })
-    return embedsContainer
+    return generateHTMLFile(embedFrames)
 } 
 
-
-
-class WixDefaultCustomElement extends HTMLElement {
-  constructor() {
-    super();
-    console.log(DEBUG_TEXT);
-  }
-
-  connectedCallback() {
-    this.appendChild(init());
-  }
-}
-customElements.define('wix-default-custom-element', WixDefaultCustomElement);
+init()
