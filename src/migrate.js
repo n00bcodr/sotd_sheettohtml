@@ -70,14 +70,20 @@ const generateHTMLFile = (rowData) => {
         margin: 1em 0;
         padding: 2px;
     }
-    .container {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      padding-top: 60%;
-      break-after: always;
-    }
-
+    .container-youtube {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding-top: 40%;
+        break-after: always;
+      }
+      .container-spotify {
+        position: relative;
+        width: 80%;
+        overflow: hidden;
+        padding-top: 10%;
+        break-after: always;
+      }
     .responsive-iframe {
       position: absolute;
       top: 0;
@@ -96,7 +102,6 @@ const generateHTMLFile = (rowData) => {
 </style>
 </head>
 </html>
-
 `
 }
 
@@ -119,8 +124,16 @@ const getLinkEmbedInfo = (link) => {
      }else if(link.indexOf("youtu.be") !== -1) {
         embedLink = "https://www.youtube.com/embed/" + link.substr(link.indexOf(".be/")+4)
     }
-    return `<div class="container"> 
-<iframe class="responsive-iframe" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen;  gyroscope; picture-in-picture" loading="lazy" src=${embedLink}></iframe>
+    let containerType = ""
+    if (link.indexOf("youtube.com") !== -1) {
+        containerType =  youtube
+    } else if(link.indexOf("spotify.com") !== -1) {
+        containerType = spotify
+     }else if(link.indexOf("youtu.be") !== -1) {
+        containerType = youtube
+    }
+    return `<div class="container-${containerType}"> 
+<iframe class="responsive-iframe" src=${embedLink} allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen;  gyroscope; picture-in-picture" loading="lazy"></iframe>
 </div>
 <hr/>`
 }
