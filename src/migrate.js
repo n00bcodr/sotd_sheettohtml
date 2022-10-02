@@ -121,7 +121,8 @@ const getLinkEmbedInfo = (link) => {
     }
     return `<div class="container"> 
 <iframe class="responsive-iframe" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen;  gyroscope; picture-in-picture" loading="lazy" src=${embedLink}></iframe>
-</div>`
+</div>
+<hr/>`
 }
 
 function processRows(json) {
