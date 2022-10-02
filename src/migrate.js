@@ -81,7 +81,7 @@ const generateHTMLFile = (rowData) => {
         position: relative;
         width: 80%;
         overflow: hidden;
-        padding-top: 10%;
+        padding-top: 30%;
         break-after: always;
         }
     .responsive-iframe {
