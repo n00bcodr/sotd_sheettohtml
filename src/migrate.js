@@ -3,7 +3,7 @@ import fs  from "fs"
 
 const sheetId = '1MsnLv-48N3VdoQvZH5y3rKo3zqfxZ4ZA41g_dSOXD28';
 const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?`;
-const sheetName = 'Form Responses 1';
+const sheetName = 'SOTD Responses';
 const query = encodeURIComponent('Select *')
 const url = `${base}&sheet=${sheetName}&tq=${query}`
 
@@ -77,13 +77,13 @@ const generateHTMLFile = (rowData) => {
         padding-top: 40%;
         break-after: always;
       }
-      .container-spotify {
-        position: relative;
-        width: 80%;
-        overflow: hidden;
-        padding-top: 10%;
-        break-after: always;
-      }
+    .container-spotify {
+    position: relative;
+    width: 80%;
+    overflow: hidden;
+    padding-top: 10%;
+    break-after: always;
+    }
     .responsive-iframe {
       position: absolute;
       top: 0;
