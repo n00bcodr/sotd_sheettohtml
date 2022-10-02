@@ -42,7 +42,7 @@ function init() {
                 })
                 data.push(row);
             })
-            const fileData = processRows(data);
+            const fileData = processRows(data.reverse());
             console.log(fileData)
 
 fs.writeFile('sotd.html', fileData, (err) => {
@@ -78,12 +78,12 @@ const generateHTMLFile = (rowData) => {
         break-after: always;
       }
     .container-spotify {
-    position: relative;
-    width: 80%;
-    overflow: hidden;
-    padding-top: 10%;
-    break-after: always;
-    }
+        position: relative;
+        width: 80%;
+        overflow: hidden;
+        padding-top: 10%;
+        break-after: always;
+        }
     .responsive-iframe {
       position: absolute;
       top: 0;
