@@ -126,11 +126,11 @@ const getLinkEmbedInfo = (link) => {
     }
     let containerType = ""
     if (link.indexOf("youtube.com") !== -1) {
-        containerType =  youtube
+        containerType = "youtube"
     } else if(link.indexOf("spotify.com") !== -1) {
-        containerType = spotify
+        containerType = "spotify"
      }else if(link.indexOf("youtu.be") !== -1) {
-        containerType = youtube
+        containerType = "youtube"
     }
     return `<div class="container-${containerType}"> 
 <iframe class="responsive-iframe" src=${embedLink} allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen;  gyroscope; picture-in-picture" loading="lazy"></iframe>
