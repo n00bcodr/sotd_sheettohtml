@@ -60,6 +60,40 @@ const generateHTMLFile = (rowData) => {
 <center>
     ${rowData.map((eachIframe => eachIframe ))}
 </center>
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<style>
+    hr {
+        display: block;
+        height: 2px;
+        border: 0;
+        border-top: 1px solid #ccc;
+        margin: 1em 0;
+        padding: 2px;
+    }
+    .container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding-top: 60%;
+      break-after: always;
+    }
+
+    .responsive-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius:12px;
+    }
+      p {color:whitesmoke; text-emphasis: bold;}
+    body {
+        font-family: 'Open Sans';font-size: 15px;
+    }
+</style>
 </head>
 </html>
 
@@ -77,16 +111,16 @@ function getId(url) {
 
 
 const getLinkEmbedInfo = (link) => {
-    let truncatedLink = ""
+    let embedLink = ""
     if (link.indexOf("youtube.com") !== -1) {
-        truncatedLink =  "https://www.youtube.com/embed/" + getId(link)
+        embedLink =  "https://www.youtube.com/embed/" + getId(link)
     } else if(link.indexOf("spotify.com") !== -1) {
-        truncatedLink = "https://open.spotify.com/embed/" + link.substr(link.indexOf("com/")+4)
+        embedLink = "https://open.spotify.com/embed/" + link.substr(link.indexOf("com/")+4)
      }else if(link.indexOf("youtu.be") !== -1) {
-        truncatedLink = "https://www.youtube.com/embed/" + link.substr(link.indexOf(".be/")+4)
+        embedLink = "https://www.youtube.com/embed/" + link.substr(link.indexOf(".be/")+4)
     }
-    return `<div> 
-<iframe  allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen;  gyroscope; picture-in-picture" loading="lazy" src=${truncatedLink}></iframe>
+    return `<div class="container"> 
+<iframe class="responsive-iframe" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen;  gyroscope; picture-in-picture" loading="lazy" src=${embedLink}></iframe>
 </div>`
 }
 
