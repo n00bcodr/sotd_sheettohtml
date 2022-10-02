@@ -3,4 +3,4 @@
 
 # [pavanthanuj.com](https://www.pavanthanuj.com/) 
 
-Generates a HTML file with embed iframes for [song-of-the-day](https://www.pavanthanuj.com/song-of-the-day) with inputs from google sheets generated from a google form. 
+Generates a [HTML file](https://n00bcodr.github.io/sotd_sheettohtml/sotd.html) with embed iframes for [song-of-the-day](https://www.pavanthanuj.com/song-of-the-day) with inputs from google sheets generated from a google form. 
