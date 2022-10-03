@@ -114,7 +114,7 @@ const generateHTMLFile = (rowData) => {
       border: none;
       border-radius:12px;
     }
-      h2 {color:whitesmoke; text-emphasis: bold;}
+      h3 {color:whitesmoke; text-emphasis: bold;}
     body {
         font-family: 'Open Sans';font-size: 15px;
     }
@@ -154,7 +154,7 @@ const getLinkEmbedInfo = (link) => {
     let PublishDate = (link.split('||')[0])
 
 
-    return `<h2>${PublishDate}</h2>
+    return `<h3>${PublishDate}</h3>
     <div class="container-${containerType}"> 
 <iframe class="responsive-iframe" src=${embedLink} allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen;  gyroscope; picture-in-picture" loading="lazy"></iframe>
 </div>
