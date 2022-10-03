@@ -61,7 +61,29 @@ const generateHTMLFile = (rowData) => {
     ${rowData.map((eachIframe => eachIframe ))}
 </center>
 <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey; 
+  border-radius: 20px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000000; 
+}
     hr {
         display: block;
         height: 2px;
