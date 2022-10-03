@@ -7,9 +7,6 @@ const sheetName = 'SOTD Responses';
 const query = encodeURIComponent('Select *')
 const url = `${base}&sheet=${sheetName}&tq=${query}`
 
-const DATE_COLUMN_ENUM = ["Timestamp", "Date"]
-
-
 function init() {
     axios({
 	method: "get",
@@ -117,7 +114,7 @@ const generateHTMLFile = (rowData) => {
       border: none;
       border-radius:12px;
     }
-      p {color:whitesmoke; text-emphasis: bold;}
+      h2 {color:whitesmoke; text-emphasis: bold;}
     body {
         font-family: 'Open Sans';font-size: 15px;
     }
@@ -154,7 +151,11 @@ const getLinkEmbedInfo = (link) => {
      }else if(link.indexOf("youtu.be") !== -1) {
         containerType = "youtube"
     }
-    return `<div class="container-${containerType}"> 
+    let PublishDate = (link.split('||')[0])
+
+
+    return `<h2>${PublishDate}</h2>
+    <div class="container-${containerType}"> 
 <iframe class="responsive-iframe" src=${embedLink} allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen;  gyroscope; picture-in-picture" loading="lazy"></iframe>
 </div>
 <hr/>`
