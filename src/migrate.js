@@ -14,25 +14,19 @@ function init() {
     })
         .then(rep => {
             let data  = []
-                        //Remove additional text and extract only JSON:
+            //Remove additional text and extract only JSON:
             const jsonData = JSON.parse(rep.data.substring(47).slice(0, -2));
  
             const colz = [];
-            //const tr = document.createElement('tr');
             //Extract column labels
             jsonData.table.cols.forEach((heading) => {
                 if (heading.label) {
                     let column = heading.label;
                     colz.push(column);
-                    //const th = document.createElement('th');
-                    //th.innerText = column;
-                    //tr.appendChild(th);
                 }
             })
-            //output.appendChild(tr);
-            //extract row data:
+            //extract row data
             jsonData.table.rows.forEach((rowData) => {
-                console.log("!!!!", rowData)
                 const row = {};
                 colz.forEach((ele, ind) => {
                     row[ele] = (rowData.c[ind] != null) ? rowData.c[ind].v : '' ;
@@ -40,11 +34,8 @@ function init() {
                 data.push(row);
             })
             const fileData = processRows(data.reverse());
-            console.log(fileData)
 
 fs.writeFile('sotd.html', fileData, (err) => {
-      
-    // In case of a error throw err.
     if (err) throw err;
 })
         })
@@ -116,7 +107,7 @@ const generateHTMLFile = (rowData) => {
     }
       p {color:whitesmoke; text-emphasis: bold;}
     body {
-        font-family: 'Open Sans';font-size: 15px;
+        font-family: 'Open Sans';font-size: 12px;
     }
 </style>
 </head>
@@ -164,7 +155,6 @@ const getLinkEmbedInfo = (link) => {
 function processRows(json) {
     let embedFrames = []
     json.forEach((row) => {
-        console.log(row)
         const embedData = getLinkEmbedInfo(row.Link)
         embedFrames.push(embedData)
     })
