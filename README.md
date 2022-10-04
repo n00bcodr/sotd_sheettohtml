@@ -1,4 +1,4 @@
-[![Node.js CI](https://github.com/n00bcodr/sotd_sheettohtml/actions/workflows/site-update-workflow.yml/badge.svg?cacheSeconds=600)](https://github.com/n00bcodr/sotd_sheettohtml/actions/workflows/site-update-workflow.yml)
+[![Node.js CI](https://github.com/n00bcodr/sotd_sheettohtml/actions/workflows/run-nodejs.yml/badge.svg?cacheSeconds=600)](https://github.com/n00bcodr/sotd_sheettohtml/actions/workflows/run-nodejs.yml)
 [![build-new-html](https://github.com/n00bcodr/sotd_sheettohtml/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/n00bcodr/sotd_sheettohtml/actions/workflows/pages/pages-build-deployment)
 
 # [pavanthanuj.com](https://www.pavanthanuj.com/) 
