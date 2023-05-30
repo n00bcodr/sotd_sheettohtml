@@ -12,7 +12,7 @@ function init() {
         method: "get",
         url: url
     })
-        .then((rep) => {
+        .then(rep => {
             let data = [];
             // Remove additional text and extract only JSON:
             const jsonData = JSON.parse(rep.data.substring(47).slice(0, -2));
@@ -45,83 +45,74 @@ const generateHTMLFile = (rowData) => {
     return `<!DOCTYPE html>
 <html>
 <head>
-    <center>
-        ${rowData.map((eachIframe) => eachIframe)}
-    </center>
-    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        /* width */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
+<center>
+    ${rowData.map((eachIframe => eachIframe)).join("")}
+</center>
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
 
-        /* Track */
-        ::-webkit-scrollbar-track {
-            box-shadow: inset 0 0 2px grey;
-            border-radius: 20px;
-        }
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey; 
+  border-radius: 20px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 20px;
+}
 
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: grey;
-            border-radius: 20px;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000000; 
+}
+    hr {
+        display: block;
+        height: 2px;
+        border: 0;
+        border-top: 1px solid #ccc;
+        margin: 1em 0;
+        padding: 2px;
+    }
+    .container-youtube {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding-top: 40%;
+        break-after: always;
+      }
+    .container-spotify {
+        position: relative;
+        width: 80%;
+        overflow: hidden;
+        padding-top: 30%;
+        break-after: always;
         }
-
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-            background: #000000;
-        }
-
-        hr {
-            display: block;
-            height: 2px;
-            border: 0;
-            border-top: 1px solid #ccc;
-            margin: 1em 0;
-            padding: 2px;
-        }
-
-        .container-youtube {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            padding-top: 40%;
-            break-after: always;
-        }
-
-        .container-spotify {
-            position: relative;
-            width: 80%;
-            overflow: hidden;
-            padding-top: 30%;
-            break-after: always;
-        }
-
-        .responsive-iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 12px;
-        }
-
-        p {
-            color: whitesmoke;
-            text-emphasis: bold;
-        }
-
-        body {
-            font-family: 'Open Sans';
-            font-size: 12px;
-        }
-    </style>
+    .responsive-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 12px;
+    }
+      p {color:whitesmoke; text-emphasis: bold;}
+    body {
+        font-family: 'Open Sans';font-size: 12px;
+    }
+</style>
 </head>
-</html>`;
+</html>
+`;
 };
 
 function getId(url) {
@@ -153,10 +144,10 @@ const getLinkEmbedInfo = (link) => {
     let PublishDate = (link.split('||')[0]);
 
     return `<p>${PublishDate}</p>
-    <div class="container-${containerType}">
-        <iframe class="responsive-iframe" src=${embedLink} allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture" loading="lazy"></iframe>
-    </div>
-    <hr/>`;
+    <div class="container-${containerType}"> 
+<iframe class="responsive-iframe" src=${embedLink} allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen;  gyroscope; picture-in-picture" loading="lazy"></iframe>
+</div>
+<hr/>`;
 };
 
 function processRows(json) {
