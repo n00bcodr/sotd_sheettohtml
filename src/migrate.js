@@ -51,11 +51,12 @@ const generateHTMLFile = (rowData) => {
 <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-
   body {
-    background: transparent !important;
+    background-color: transparent !important;
   }
-
+  html {
+    background-color: transparent !important;
+  }
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
